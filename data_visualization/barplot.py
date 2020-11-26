@@ -1,13 +1,12 @@
 import json
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import boto3
 import os
 
 def lambda_handler(event, context):
 
-    file_name = 'scatter_plt.png'
+    file_name = 'bar_plt.png'
     data_name = '/tmp/cars.csv'
     
     #Get dataset from S3
@@ -20,41 +19,17 @@ def lambda_handler(event, context):
     #Set a style
     plt.style.use('ggplot')
     
+    #Set default value for features
+    x = None
+    y = None
+
     #Get features from user input
-    if event.get('queryStringParameters') is None:
-        return{
-            'statusCode': 400,
-            'headers': {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Headers": "Content-Type",
-                "Access-Control-Allow-Methods": "OPTIONS,GET"
-            },
-            'body': json.dumps({
-            'response': 'Bad request' })
-        }
-
-    x = event.get('queryStringParameters').get('x')
-    y = event.get('queryStringParameters').get('y')
-    c = event.get('queryStringParameters').get('c')
-    cmap = None
+    if event.get('queryStringParameters') is not None:
+        x = event.get('queryStringParameters').get('x')
+        y = event.get('queryStringParameters').get('y')
     
-    if (x is None) or (y is None):
-        return{
-            'statusCode': 400,
-            'headers': {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Headers": "Content-Type",
-                "Access-Control-Allow-Methods": "OPTIONS,GET"
-            },
-            'body': json.dumps({
-            'response': 'Bad request' })
-        }
-
-    if (c is not None) or (c != ''):
-        cmap = 'coolwarm'
-        
     #Use panda's data visualization library to create a scatter plot
-    df.plot.scatter(x=x,y=y,c=c,cmap=cmap)
+    df.plot.bar(x=x, y=y)
     
     #Save our figure to a temp directory
     plt.savefig(f'/tmp/{file_name}')
