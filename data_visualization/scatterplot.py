@@ -6,6 +6,7 @@ import boto3
 import os
 
 def lambda_handler(event, context):
+
     file_name = 'scatter_plt.png'
     data_name = '/tmp/cars.csv'
     
@@ -19,8 +20,28 @@ def lambda_handler(event, context):
     #Set a style
     plt.style.use('ggplot')
     
+    #Get features from user input
+    if event.get('queryStringParameters') is None:
+    	return{
+    		'statusCode': 400,
+    		'body': json.dumps({
+            'response': 'Bad request' })
+    	}
+
+    x = event.get('queryStringParameters').get('x')
+    y = event.get('queryStringParameters').get('y')
+    c = event.get('queryStringParameters').get('c')
+    
+    if (x is None) or (y is None) or (c is None):
+    	return{
+    		'statusCode': 400,
+    		'body': json.dumps({
+            'response': 'Bad request' })
+    	}
+
+
     #Use panda's data visualization library to create a scatter plot
-    df.plot.scatter(x='mpg',y='cyl',c='disp',cmap='coolwarm')
+    df.plot.scatter(x=x,y=y,c=c,cmap='coolwarm')
     
     #Save our figure to a temp directory
     plt.savefig(f'/tmp/{file_name}')
@@ -38,5 +59,5 @@ def lambda_handler(event, context):
 
     return {
         'statusCode': 200,
-        'body': json.dumps(f'https://{os.environ["BUCKET_NAME"]}.s3.amazonaws.com/plots/{file_name}')
+        'body': json.dumps({'response':f'https://{os.environ["BUCKET_NAME"]}.s3.amazonaws.com/plots/{file_name}'})
     }
