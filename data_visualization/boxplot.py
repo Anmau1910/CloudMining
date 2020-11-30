@@ -19,7 +19,7 @@ def lambda_handler(event, context):
     #Set a style
     plt.style.use('ggplot')
     
-    #Use panda's data visualization library to create a scatter plot
+    #Use panda's data visualization library to create a boxplot
     df.boxplot()
     
     #Save our figure to a temp directory

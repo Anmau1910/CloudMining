@@ -6,7 +6,7 @@ import os
 
 def lambda_handler(event, context):
 
-    file_name = 'bar_plt.png'
+    file_name = 'density_plt.png'
     data_name = '/tmp/cars.csv'
     
     #Get dataset from S3
@@ -19,17 +19,17 @@ def lambda_handler(event, context):
     #Set a style
     plt.style.use('ggplot')
     
-    #Set default value for features
-    x = None
-    y = None
+    ##Set default value for features
+    #x = None
+    #y = None
 
-    #Get features from user input
-    if event.get('queryStringParameters') is not None:
-        x = event.get('queryStringParameters').get('x')
-        y = event.get('queryStringParameters').get('y')
+    ##Get features from user input
+    #if event.get('queryStringParameters') is not None:
+    #    x = event.get('queryStringParameters').get('x')
+    #    y = event.get('queryStringParameters').get('y')
     
-    #Use panda's data visualization library to create a barplot
-    df.plot.bar(x=x, y=y)
+    #Use panda's data visualization library to create a density plot
+    df.plot.density()
     
     #Save our figure to a temp directory
     plt.savefig(f'/tmp/{file_name}')
