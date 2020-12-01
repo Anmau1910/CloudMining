@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo installing nodejs
+      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
+      - apt-get install -y nodejs
+    pre-build:
+      - echo installing dependencies
+      - cd CloudMiningFront/
+      - npm install
+    build:
+      - ng build --prod
+
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: dist/CloudMiningFront
