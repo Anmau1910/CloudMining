@@ -8,10 +8,10 @@ phases:
       - apt-get install -y nodejs
     pre-build:
       - echo installing dependencies
-      - cd CloudMiningFront/
+      - cd front_end/CloudMiningFront
       - npm install
     build:
-      - ng build --prod
+      - PATH="$PWD/node_modules/.bin:$PATH" ng build --prod
 
 artifacts:
   files:
