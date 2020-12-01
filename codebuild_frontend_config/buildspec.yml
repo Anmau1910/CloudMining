@@ -17,4 +17,4 @@ artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: dist/CloudMiningFront
+  base-directory: front_end/CloudMiningFront/dist/CloudMiningFront
