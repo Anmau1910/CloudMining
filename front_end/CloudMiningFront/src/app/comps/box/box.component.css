@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+.mat-progress-bar {
+    margin: 1%;
+}
+
+.example-card {
+    max-width: 100%;
+    margin: 1%;
+    background-color: rgb(149, 129, 230);
+    overflow: scroll;
+}

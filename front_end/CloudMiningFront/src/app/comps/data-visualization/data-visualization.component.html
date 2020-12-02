@@ -1,71 +1,84 @@
-<div class="container">  
-        <mat-card class="example-card" routerLink="/main">
-            <mat-card-header>
-                <div mat-card-avatar class="boxplot"></div>
-                <mat-card-title>Box Plot</mat-card-title>
-                <mat-card-subtitle>Statistical Charts</mat-card-subtitle>
-            </mat-card-header>
-                <img mat-card-image src="https://www.katzentante.at/wp-content/uploads/2015/02/boxplot_singlepoints.png" alt="A boxplot" sizes="300px">
-            <mat-card-content>
-                <p>
-                A box plot or boxplot is a method for graphically depicting groups of numerical data through their quartiles. 
-                Box plots may also have lines extending from the boxes (whiskers) indicating variability outside the upper and lower quartiles, hence the terms box-and-whisker plot and box-and-whisker diagram.
-                Outliers may be plotted as individual points.
-                </p>
-            </mat-card-content>
+<!-- Toolbar -->
+<mat-toolbar color="primary">
+    <span>CloudMining</span>
+    <span class="example-spacer"></span>
+    <span>Choose Your Plot</span>
+</mat-toolbar>
+  
+
+<div class="content" role="main" style="display: block;">
+    <div class="container">  
+        <mat-card class="example-card" routerLink='box'>
+                <mat-card-header>
+                    <div mat-card-avatar class="boxplot"></div>
+                    <mat-card-title>Box Plot</mat-card-title>
+                    <mat-card-subtitle>Statistical Charts</mat-card-subtitle>
+                </mat-card-header>
+                    <img mat-card-image src="https://www.katzentante.at/wp-content/uploads/2015/02/boxplot_singlepoints.png" alt="A boxplot" sizes="300px">
+                <mat-card-content>
+                    <p>
+                    A box plot or boxplot is a method for graphically depicting groups of numerical data through their quartiles. 
+                    Box plots may also have lines extending from the boxes (whiskers) indicating variability outside the upper and lower quartiles, hence the terms box-and-whisker plot and box-and-whisker diagram.
+                    Outliers may be plotted as individual points.
+                    </p>
+                </mat-card-content>
         </mat-card>
-  <mat-card class="example-card">
-    <mat-card-header>
-        <div mat-card-avatar class="barplot"></div>
-        <mat-card-title>Bar Chart</mat-card-title>
-        <mat-card-subtitle>Statistical Charts</mat-card-subtitle>
-    </mat-card-header>
-        <img mat-card-image src="https://i.stack.imgur.com/4LItS.png" alt="A barplot" sizes="300px">
-    <mat-card-content>
-        <p>
-            A bar chart or bar graph is a chart or graph that presents categorical data with rectangular bars with heights or lengths proportional to the values that they represent.
-            The bars can be plotted vertically or horizontally. A vertical bar chart is sometimes called a column chart.
-            A bar graph shows comparisons among discrete categories. One axis of the chart shows the specific categories being compared, and the other axis represents a measured value.
-            Some bar graphs present bars clustered in groups of more than one, showing the values of more than one measured variable. 
-        </p>
-    </mat-card-content>
-  </mat-card>
+    <mat-card class="example-card" routerLink="bar">
+        <mat-card-header>
+            <div mat-card-avatar class="barplot"></div>
+            <mat-card-title>Bar Chart</mat-card-title>
+            <mat-card-subtitle>Statistical Charts</mat-card-subtitle>
+        </mat-card-header>
+            <img mat-card-image src="https://i.stack.imgur.com/4LItS.png" alt="A barplot" sizes="300px">
+        <mat-card-content>
+            <p>
+                A bar chart or bar graph is a chart or graph that presents categorical data with rectangular bars with heights or lengths proportional to the values that they represent.
+                The bars can be plotted vertically or horizontally. A vertical bar chart is sometimes called a column chart.
+                A bar graph shows comparisons among discrete categories. One axis of the chart shows the specific categories being compared, and the other axis represents a measured value.
+                Some bar graphs present bars clustered in groups of more than one, showing the values of more than one measured variable. 
+            </p>
+        </mat-card-content>
+    </mat-card>
 
-  <mat-card class="example-card">
-    <mat-card-header>
-        <div mat-card-avatar class="scatterplot"></div>
-        <mat-card-title>Scatter Plot</mat-card-title>
-        <mat-card-subtitle>Statistical Charts</mat-card-subtitle>
-    </mat-card-header>
-        <img mat-card-image src="https://i.stack.imgur.com/U5GeR.png" alt="A barplot" sizes="300px">
-    <mat-card-content>
-        <p>
-            Type of plot using Cartesian coordinates to display values for typically two variables for a set of data. 
-            If the points are coded (color/shape/size), one additional variable can be displayed. The data are displayed as a collection of points, each having the value of one variable determining the position on the horizontal axis and the value of the other variable determining the position on the vertical axis.
-            A scatter plot can be used either when one continuous variable that is under the control of the experimenter and the other depends on it or when both continuous variables are independent.
-        </p>
-    </mat-card-content>
-  </mat-card>
+    <mat-card class="example-card" routerLink='scatter'>
+        <mat-card-header>
+            <div mat-card-avatar class="scatterplot"></div>
+            <mat-card-title>Scatter Plot</mat-card-title>
+            <mat-card-subtitle>Statistical Charts</mat-card-subtitle>
+        </mat-card-header>
+            <img mat-card-image src="https://i.stack.imgur.com/U5GeR.png" alt="A barplot" sizes="300px">
+        <mat-card-content>
+            <p>
+                Type of plot using Cartesian coordinates to display values for typically two variables for a set of data. 
+                If the points are coded (color/shape/size), one additional variable can be displayed. The data are displayed as a collection of points, each having the value of one variable determining the position on the horizontal axis and the value of the other variable determining the position on the vertical axis.
+                A scatter plot can be used either when one continuous variable that is under the control of the experimenter and the other depends on it or when both continuous variables are independent.
+            </p>
+        </mat-card-content>
+    </mat-card>
 
-  <mat-card class="example-card">
-    <mat-card-header>
-        <div mat-card-avatar class="densityplot"></div>
-        <mat-card-title>Probability Density Function Plot</mat-card-title>
-        <mat-card-subtitle>Statistical Charts</mat-card-subtitle>
-    </mat-card-header>
-        <img mat-card-image src="https://en.citizendium.org/images/thumb/c/c5/Normal_probability_distribution_function.gif/350px-Normal_probability_distribution_function.gif" alt="A barplot" sizes="300px">
-    <mat-card-content>
-        <p>
-            Or density of a continuous random variable, is a function whose value at any given 
-            sample (or point) in the sample space (the set of possible values taken by the random 
-            variable) can be interpreted as providing a relative likelihood that the value of the 
-            random variable would equal that sample. In other words, while the absolute likelihood 
-            for a continuous random variable to take on any particular value is 0 (since there are an infinite set of possible values to begin with), 
-            the value of the PDF at two different samples can be used to infer, in any particular draw of the 
-            random variable, how much more likely it is that the random variable would equal one sample compared 
-            to the other sample.     
-        </p>
-    </mat-card-content>
-  </mat-card>
-
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="densityplot"></div>
+            <mat-card-title>Probability Density Function Plot</mat-card-title>
+            <mat-card-subtitle>Statistical Charts</mat-card-subtitle>
+        </mat-card-header>
+            <img mat-card-image src="https://en.citizendium.org/images/thumb/c/c5/Normal_probability_distribution_function.gif/350px-Normal_probability_distribution_function.gif" alt="A barplot" sizes="300px">
+        <mat-card-content>
+            <p>
+                Or density of a continuous random variable, is a function whose value at any given 
+                sample (or point) in the sample space (the set of possible values taken by the random 
+                variable) can be interpreted as providing a relative likelihood that the value of the 
+                random variable would equal that sample. In other words, while the absolute likelihood 
+                for a continuous random variable to take on any particular value is 0 (since there are an infinite set of possible values to begin with), 
+                the value of the PDF at two different samples can be used to infer, in any particular draw of the 
+                random variable, how much more likely it is that the random variable would equal one sample compared 
+                to the other sample.     
+            </p>
+        </mat-card-content>
+    </mat-card>
+    </div>
+    <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+        <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
+    </svg>
 </div>
+<router-outlet ></router-outlet>

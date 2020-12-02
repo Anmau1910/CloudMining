@@ -6,8 +6,9 @@ import { Router } from '@angular/router';
   templateUrl: './data-visualization.component.html',
   styleUrls: ['./data-visualization.component.css']
 })
-export class DataVisualizationComponent implements OnInit {
 
+export class DataVisualizationComponent implements OnInit {
+  
   constructor(private router: Router) { }
 
   ngOnInit(): void {
