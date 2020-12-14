@@ -1,5 +1,8 @@
 # CloudMining: Visualización de Datos *Serverless*
 
+
+*Repositorio del front-end [aquí](https://github.com/Anmau1910/CloudMiningFront).*
+
 CloudMining es un servicio web de visualización de datos basado en la nube. El objetivo de este proyecto es explorar la implementación de un servicio web *serverless*, evitando el provisionamiento de infraestructura y los costos asociados con la manutención de esta. De esta manera, se ha creado una aplicación web cuyo poder de procesamiento es escalable a un gran número de peticiones sin necesidad de adjudicar recursos humanos al mantenimiento constante de un servidor o una flota de servidores dedicados al servicio de dichas peticiones.
 Simultáneamente, se examina una de las prácticas ubicuas en DevOps: el despliegue continuo o *continuous deployment*, basado también en servicios en la nube de Amazon como soporte para la automatización de la construcción y el despliegue automático del componente *front-end*.
 A continuación se encuentra un análisis de la arquitectura y las decisiones de diseño que fueron tomadas, así como las dificultades y aspectos a mejorar para próximas iteraciones de este proyecto o proyectos similares:
