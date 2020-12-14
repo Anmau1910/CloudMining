@@ -7,12 +7,18 @@ import os
 def lambda_handler(event, context):
 
     file_name = 'bar_plt.png'
-    data_name = '/tmp/cars.csv'
+    data_name = '/tmp/dataset.csv'
     
     #Get dataset from S3
     
     s3 = boto3.client('s3')
-    s3.download_file(os.environ['BUCKET_NAME'], 'datasets/cars.csv', data_name)
+    s3.download_file(os.environ['BUCKET_NAME'], 'dataset.csv', data_name)
+    
+        
+    file_content = ''
+    with open(data_name) as f:
+        file_content = f.read()
+    
     
     df = pd.read_csv(data_name)
    
@@ -28,7 +34,7 @@ def lambda_handler(event, context):
         x = event.get('queryStringParameters').get('x')
         y = event.get('queryStringParameters').get('y')
     
-    #Use panda's data visualization library to create a barplot
+    #Use panda's data visualization library to create a scatter plot
     df.plot.bar(x=x, y=y)
     
     #Save our figure to a temp directory

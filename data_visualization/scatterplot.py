@@ -8,15 +8,21 @@ import os
 def lambda_handler(event, context):
 
     file_name = 'scatter_plt.png'
-    data_name = '/tmp/cars.csv'
+    data_name = '/tmp/dataset.csv'
     
     #Get dataset from S3
     
     s3 = boto3.client('s3')
-    s3.download_file(os.environ['BUCKET_NAME'], 'datasets/cars.csv', data_name)
+    s3.download_file(os.environ['BUCKET_NAME'], 'dataset.csv', data_name)
+    
+        
+    file_content = ''
+    with open(data_name) as f:
+        file_content = f.read()
+    
     
     df = pd.read_csv(data_name)
-   
+    
     #Set a style
     plt.style.use('ggplot')
     
@@ -52,10 +58,21 @@ def lambda_handler(event, context):
 
     if (c is not None) or (c != ''):
         cmap = 'coolwarm'
-        
-    #Use panda's data visualization library to create a scatter plot
-    df.plot.scatter(x=x,y=y,c=c,cmap=cmap)
     
+    #Use panda's data visualization library to create a scatter plot
+    try:
+        df.plot.scatter(x=x,y=y,c=c,cmap=cmap)
+    except Exception as e:
+        return {
+            'statusCode': 400,
+            'headers': {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Headers": "Content-Type",
+                    "Access-Control-Allow-Methods": "OPTIONS,GET"
+            },
+            'body': json.dumps({'response': repr(e)})
+        }
+
     #Save our figure to a temp directory
     plt.savefig(f'/tmp/{file_name}')
     
